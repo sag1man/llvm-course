@@ -1,0 +1,437 @@
+Window 1:
+mul <- sub: 135827440
+getelementptr <- alloca: 101870833
+getelementptr <- phi: 101870833
+load <- getelementptr: 101870773
+add <- phi: 70745728
+add <- mul: 69324454
+add <- udiv: 67913720
+sub <- load: 67913720
+sub <- phi: 67913720
+udiv <- add: 67913720
+br <- icmp: 40869133
+icmp <- add: 40869133
+udiv <- load: 33956860
+shl <- phi: 5659476
+or <- shl: 5659476
+or <- or: 5659476
+call <- phi: 5659476
+or <- phi: 2829738
+call <- or: 2829738
+shl <- add: 1892525
+mul <- add: 786643
+sub <- mul: 162552
+add <- load: 192
+store <- getelementptr: 156
+store <- phi: 96
+call <- call: 60
+and <- call: 48
+add <- urem: 36
+urem <- call: 36
+store <- add: 36
+add <- and: 24
+xor <- and: 24
+store <- select: 24
+icmp <- and: 24
+select <- add: 24
+select <- xor: 24
+select <- icmp: 24
+call <- alloca: 5
+
+Window 2:
+getelementptr <- alloca | getelementptr <- phi: 101870833
+getelementptr <- phi | load <- getelementptr: 101870773
+mul <- sub | mul <- sub: 101870580
+sub <- phi | sub <- load: 67913720
+udiv <- add | add <- udiv: 67913720
+load <- getelementptr | sub <- phi: 67913720
+icmp <- add | br <- icmp: 40869133
+add <- phi | icmp <- add: 36788868
+add <- mul | add <- mul: 34580951
+br <- icmp | getelementptr <- alloca: 33956909
+add <- mul | getelementptr <- alloca: 33956860
+add <- udiv | add <- phi: 33956860
+add <- udiv | udiv <- load: 33956860
+add <- phi | add <- phi: 33956860
+sub <- load | mul <- sub: 33956860
+sub <- load | getelementptr <- alloca: 33956860
+mul <- sub | add <- mul: 33956860
+udiv <- load | udiv <- add: 33956860
+load <- getelementptr | udiv <- add: 33956860
+br <- icmp | icmp <- add: 4080217
+shl <- phi | shl <- phi: 2829738
+shl <- phi | or <- shl: 2829738
+or <- shl | or <- or: 2829738
+or <- shl | or <- phi: 2829738
+or <- or | or <- shl: 2829738
+or <- or | call <- phi: 2829738
+or <- phi | or <- or: 2829738
+call <- or | add <- phi: 2829738
+call <- phi | call <- or: 2829738
+call <- phi | call <- phi: 2829738
+br <- icmp | shl <- add: 1892525
+shl <- add | shl <- phi: 1892525
+br <- icmp | mul <- add: 786643
+mul <- add | add <- mul: 786643
+add <- mul | shl <- phi: 624091
+add <- mul | sub <- mul: 162552
+sub <- mul | shl <- phi: 162552
+br <- icmp | shl <- phi: 150570
+br <- icmp | add <- phi: 2210
+add <- load | add <- load: 96
+load <- getelementptr | add <- load: 96
+load <- getelementptr | getelementptr <- alloca: 96
+store <- phi | store <- getelementptr: 96
+store <- getelementptr | add <- phi: 60
+br <- icmp | store <- phi: 48
+add <- load | getelementptr <- alloca: 48
+add <- load | icmp <- add: 48
+store <- getelementptr | store <- phi: 48
+store <- getelementptr | call <- call: 48
+add <- urem | getelementptr <- alloca: 36
+urem <- call | add <- urem: 36
+store <- add | store <- getelementptr: 36
+getelementptr <- phi | store <- add: 36
+call <- call | urem <- call: 36
+add <- and | and <- call: 24
+and <- call | add <- and: 24
+and <- call | icmp <- and: 24
+xor <- and | select <- icmp: 24
+store <- select | store <- getelementptr: 24
+getelementptr <- phi | store <- select: 24
+icmp <- and | xor <- and: 24
+call <- call | and <- call: 24
+select <- add | getelementptr <- alloca: 24
+select <- xor | select <- add: 24
+select <- icmp | select <- xor: 24
+br <- icmp | call <- call: 11
+call <- alloca | call <- alloca: 4
+call <- alloca | call <- call: 1
+
+Window 3:
+getelementptr <- alloca | getelementptr <- phi | load <- getelementptr: 101870773
+mul <- sub | mul <- sub | mul <- sub: 67913720
+load <- getelementptr | sub <- phi | sub <- load: 67913720
+getelementptr <- phi | load <- getelementptr | sub <- phi: 67913720
+add <- phi | icmp <- add | br <- icmp: 36788868
+br <- icmp | getelementptr <- alloca | getelementptr <- phi: 33956909
+icmp <- add | br <- icmp | getelementptr <- alloca: 33956909
+add <- mul | add <- mul | getelementptr <- alloca: 33956860
+add <- mul | getelementptr <- alloca | getelementptr <- phi: 33956860
+add <- udiv | add <- phi | add <- phi: 33956860
+add <- udiv | udiv <- load | udiv <- add: 33956860
+add <- phi | add <- phi | icmp <- add: 33956860
+sub <- load | mul <- sub | mul <- sub: 33956860
+sub <- load | getelementptr <- alloca | getelementptr <- phi: 33956860
+sub <- phi | sub <- load | mul <- sub: 33956860
+sub <- phi | sub <- load | getelementptr <- alloca: 33956860
+mul <- sub | add <- mul | add <- mul: 33956860
+mul <- sub | mul <- sub | add <- mul: 33956860
+udiv <- add | add <- udiv | add <- phi: 33956860
+udiv <- add | add <- udiv | udiv <- load: 33956860
+udiv <- load | udiv <- add | add <- udiv: 33956860
+load <- getelementptr | udiv <- add | add <- udiv: 33956860
+getelementptr <- phi | load <- getelementptr | udiv <- add: 33956860
+br <- icmp | icmp <- add | br <- icmp: 4080217
+icmp <- add | br <- icmp | icmp <- add: 4080217
+shl <- phi | shl <- phi | or <- shl: 2829738
+shl <- phi | or <- shl | or <- phi: 2829738
+or <- shl | or <- or | call <- phi: 2829738
+or <- shl | or <- phi | or <- or: 2829738
+or <- or | or <- shl | or <- or: 2829738
+or <- or | call <- phi | call <- phi: 2829738
+or <- phi | or <- or | or <- shl: 2829738
+call <- or | add <- phi | icmp <- add: 2829738
+call <- phi | call <- or | add <- phi: 2829738
+call <- phi | call <- phi | call <- or: 2829738
+br <- icmp | shl <- add | shl <- phi: 1892525
+shl <- add | shl <- phi | shl <- phi: 1892525
+icmp <- add | br <- icmp | shl <- add: 1892525
+br <- icmp | mul <- add | add <- mul: 786643
+icmp <- add | br <- icmp | mul <- add: 786643
+add <- mul | add <- mul | shl <- phi: 624091
+add <- mul | shl <- phi | shl <- phi: 624091
+mul <- add | add <- mul | add <- mul: 624091
+add <- mul | sub <- mul | shl <- phi: 162552
+sub <- mul | shl <- phi | shl <- phi: 162552
+mul <- add | add <- mul | sub <- mul: 162552
+br <- icmp | shl <- phi | shl <- phi: 150570
+icmp <- add | br <- icmp | shl <- phi: 150570
+br <- icmp | add <- phi | icmp <- add: 2210
+icmp <- add | br <- icmp | add <- phi: 2210
+load <- getelementptr | add <- load | add <- load: 96
+load <- getelementptr | getelementptr <- alloca | getelementptr <- phi: 96
+getelementptr <- phi | load <- getelementptr | add <- load: 96
+getelementptr <- phi | load <- getelementptr | getelementptr <- alloca: 96
+store <- getelementptr | add <- phi | icmp <- add: 60
+br <- icmp | store <- phi | store <- getelementptr: 48
+add <- load | add <- load | getelementptr <- alloca: 48
+add <- load | add <- load | icmp <- add: 48
+add <- load | getelementptr <- alloca | getelementptr <- phi: 48
+add <- load | icmp <- add | br <- icmp: 48
+store <- getelementptr | store <- phi | store <- getelementptr: 48
+store <- phi | store <- getelementptr | add <- phi: 48
+store <- phi | store <- getelementptr | store <- phi: 48
+icmp <- add | br <- icmp | store <- phi: 48
+add <- urem | getelementptr <- alloca | getelementptr <- phi: 36
+urem <- call | add <- urem | getelementptr <- alloca: 36
+getelementptr <- alloca | getelementptr <- phi | store <- add: 36
+getelementptr <- phi | store <- add | store <- getelementptr: 36
+call <- call | urem <- call | add <- urem: 36
+add <- and | and <- call | icmp <- and: 24
+and <- call | add <- and | and <- call: 24
+and <- call | icmp <- and | xor <- and: 24
+xor <- and | select <- icmp | select <- xor: 24
+store <- add | store <- getelementptr | call <- call: 24
+store <- getelementptr | call <- call | urem <- call: 24
+store <- getelementptr | call <- call | and <- call: 24
+store <- select | store <- getelementptr | call <- call: 24
+getelementptr <- alloca | getelementptr <- phi | store <- select: 24
+getelementptr <- phi | store <- select | store <- getelementptr: 24
+icmp <- and | xor <- and | select <- icmp: 24
+call <- call | and <- call | add <- and: 24
+select <- add | getelementptr <- alloca | getelementptr <- phi: 24
+select <- xor | select <- add | getelementptr <- alloca: 24
+select <- icmp | select <- xor | select <- add: 24
+store <- add | store <- getelementptr | add <- phi: 12
+br <- icmp | call <- call | urem <- call: 11
+icmp <- add | br <- icmp | call <- call: 11
+call <- alloca | call <- alloca | call <- alloca: 3
+call <- alloca | call <- alloca | call <- call: 1
+call <- alloca | call <- call | urem <- call: 1
+
+Window 4:
+getelementptr <- alloca | getelementptr <- phi | load <- getelementptr | sub <- phi: 67913720
+getelementptr <- phi | load <- getelementptr | sub <- phi | sub <- load: 67913720
+br <- icmp | getelementptr <- alloca | getelementptr <- phi | load <- getelementptr: 33956909
+add <- phi | icmp <- add | br <- icmp | getelementptr <- alloca: 33956909
+icmp <- add | br <- icmp | getelementptr <- alloca | getelementptr <- phi: 33956909
+add <- mul | add <- mul | getelementptr <- alloca | getelementptr <- phi: 33956860
+add <- mul | getelementptr <- alloca | getelementptr <- phi | load <- getelementptr: 33956860
+add <- udiv | add <- phi | add <- phi | icmp <- add: 33956860
+add <- udiv | udiv <- load | udiv <- add | add <- udiv: 33956860
+add <- phi | add <- phi | icmp <- add | br <- icmp: 33956860
+sub <- load | mul <- sub | mul <- sub | mul <- sub: 33956860
+sub <- load | getelementptr <- alloca | getelementptr <- phi | load <- getelementptr: 33956860
+sub <- phi | sub <- load | mul <- sub | mul <- sub: 33956860
+sub <- phi | sub <- load | getelementptr <- alloca | getelementptr <- phi: 33956860
+mul <- sub | add <- mul | add <- mul | getelementptr <- alloca: 33956860
+mul <- sub | mul <- sub | add <- mul | add <- mul: 33956860
+mul <- sub | mul <- sub | mul <- sub | add <- mul: 33956860
+mul <- sub | mul <- sub | mul <- sub | mul <- sub: 33956860
+udiv <- add | add <- udiv | add <- phi | add <- phi: 33956860
+udiv <- add | add <- udiv | udiv <- load | udiv <- add: 33956860
+udiv <- load | udiv <- add | add <- udiv | add <- phi: 33956860
+load <- getelementptr | sub <- phi | sub <- load | mul <- sub: 33956860
+load <- getelementptr | sub <- phi | sub <- load | getelementptr <- alloca: 33956860
+load <- getelementptr | udiv <- add | add <- udiv | udiv <- load: 33956860
+getelementptr <- alloca | getelementptr <- phi | load <- getelementptr | udiv <- add: 33956860
+getelementptr <- phi | load <- getelementptr | udiv <- add | add <- udiv: 33956860
+icmp <- add | br <- icmp | icmp <- add | br <- icmp: 4080217
+add <- phi | icmp <- add | br <- icmp | icmp <- add: 2829738
+shl <- phi | shl <- phi | or <- shl | or <- phi: 2829738
+shl <- phi | or <- shl | or <- phi | or <- or: 2829738
+or <- shl | or <- or | call <- phi | call <- phi: 2829738
+or <- shl | or <- phi | or <- or | or <- shl: 2829738
+or <- or | or <- shl | or <- or | call <- phi: 2829738
+or <- or | call <- phi | call <- phi | call <- or: 2829738
+or <- phi | or <- or | or <- shl | or <- or: 2829738
+call <- or | add <- phi | icmp <- add | br <- icmp: 2829738
+call <- phi | call <- or | add <- phi | icmp <- add: 2829738
+call <- phi | call <- phi | call <- or | add <- phi: 2829738
+br <- icmp | shl <- add | shl <- phi | shl <- phi: 1892525
+br <- icmp | icmp <- add | br <- icmp | shl <- add: 1892525
+shl <- add | shl <- phi | shl <- phi | or <- shl: 1892525
+icmp <- add | br <- icmp | shl <- add | shl <- phi: 1892525
+br <- icmp | icmp <- add | br <- icmp | icmp <- add: 1250431
+br <- icmp | icmp <- add | br <- icmp | mul <- add: 786643
+icmp <- add | br <- icmp | mul <- add | add <- mul: 786643
+br <- icmp | mul <- add | add <- mul | add <- mul: 624091
+add <- mul | add <- mul | shl <- phi | shl <- phi: 624091
+add <- mul | shl <- phi | shl <- phi | or <- shl: 624091
+mul <- add | add <- mul | add <- mul | shl <- phi: 624091
+br <- icmp | mul <- add | add <- mul | sub <- mul: 162552
+add <- mul | sub <- mul | shl <- phi | shl <- phi: 162552
+sub <- mul | shl <- phi | shl <- phi | or <- shl: 162552
+mul <- add | add <- mul | sub <- mul | shl <- phi: 162552
+br <- icmp | shl <- phi | shl <- phi | or <- shl: 150570
+br <- icmp | icmp <- add | br <- icmp | shl <- phi: 150570
+icmp <- add | br <- icmp | shl <- phi | shl <- phi: 150570
+br <- icmp | add <- phi | icmp <- add | br <- icmp: 2210
+add <- phi | icmp <- add | br <- icmp | add <- phi: 2210
+icmp <- add | br <- icmp | add <- phi | icmp <- add: 2210
+load <- getelementptr | getelementptr <- alloca | getelementptr <- phi | load <- getelementptr: 96
+getelementptr <- alloca | getelementptr <- phi | load <- getelementptr | add <- load: 96
+getelementptr <- alloca | getelementptr <- phi | load <- getelementptr | getelementptr <- alloca: 96
+getelementptr <- phi | load <- getelementptr | add <- load | add <- load: 96
+getelementptr <- phi | load <- getelementptr | getelementptr <- alloca | getelementptr <- phi: 96
+store <- getelementptr | add <- phi | icmp <- add | br <- icmp: 60
+br <- icmp | store <- phi | store <- getelementptr | store <- phi: 48
+br <- icmp | icmp <- add | br <- icmp | store <- phi: 48
+add <- load | add <- load | getelementptr <- alloca | getelementptr <- phi: 48
+add <- load | add <- load | icmp <- add | br <- icmp: 48
+add <- load | getelementptr <- alloca | getelementptr <- phi | load <- getelementptr: 48
+add <- load | icmp <- add | br <- icmp | icmp <- add: 48
+load <- getelementptr | add <- load | add <- load | getelementptr <- alloca: 48
+load <- getelementptr | add <- load | add <- load | icmp <- add: 48
+store <- getelementptr | store <- phi | store <- getelementptr | add <- phi: 48
+store <- phi | store <- getelementptr | add <- phi | icmp <- add: 48
+store <- phi | store <- getelementptr | store <- phi | store <- getelementptr: 48
+icmp <- add | br <- icmp | store <- phi | store <- getelementptr: 48
+add <- urem | getelementptr <- alloca | getelementptr <- phi | store <- add: 36
+urem <- call | add <- urem | getelementptr <- alloca | getelementptr <- phi: 36
+getelementptr <- alloca | getelementptr <- phi | store <- add | store <- getelementptr: 36
+call <- call | urem <- call | add <- urem | getelementptr <- alloca: 36
+add <- and | and <- call | icmp <- and | xor <- and: 24
+and <- call | add <- and | and <- call | icmp <- and: 24
+and <- call | icmp <- and | xor <- and | select <- icmp: 24
+xor <- and | select <- icmp | select <- xor | select <- add: 24
+store <- getelementptr | call <- call | urem <- call | add <- urem: 24
+store <- getelementptr | call <- call | and <- call | add <- and: 24
+getelementptr <- alloca | getelementptr <- phi | store <- select | store <- getelementptr: 24
+getelementptr <- phi | store <- add | store <- getelementptr | call <- call: 24
+getelementptr <- phi | store <- select | store <- getelementptr | call <- call: 24
+icmp <- and | xor <- and | select <- icmp | select <- xor: 24
+call <- call | and <- call | add <- and | and <- call: 24
+select <- add | getelementptr <- alloca | getelementptr <- phi | store <- select: 24
+select <- xor | select <- add | getelementptr <- alloca | getelementptr <- phi: 24
+select <- icmp | select <- xor | select <- add | getelementptr <- alloca: 24
+store <- add | store <- getelementptr | add <- phi | icmp <- add: 12
+store <- add | store <- getelementptr | call <- call | urem <- call: 12
+store <- add | store <- getelementptr | call <- call | and <- call: 12
+store <- select | store <- getelementptr | call <- call | urem <- call: 12
+store <- select | store <- getelementptr | call <- call | and <- call: 12
+getelementptr <- phi | store <- add | store <- getelementptr | add <- phi: 12
+br <- icmp | call <- call | urem <- call | add <- urem: 11
+add <- phi | icmp <- add | br <- icmp | call <- call: 11
+icmp <- add | br <- icmp | call <- call | urem <- call: 11
+call <- alloca | call <- alloca | call <- alloca | call <- alloca: 2
+call <- alloca | call <- alloca | call <- alloca | call <- call: 1
+call <- alloca | call <- alloca | call <- call | urem <- call: 1
+call <- alloca | call <- call | urem <- call | add <- urem: 1
+
+Window 5:
+getelementptr <- alloca | getelementptr <- phi | load <- getelementptr | sub <- phi | sub <- load: 67913720
+add <- phi | icmp <- add | br <- icmp | getelementptr <- alloca | getelementptr <- phi: 33956909
+icmp <- add | br <- icmp | getelementptr <- alloca | getelementptr <- phi | load <- getelementptr: 33956909
+br <- icmp | getelementptr <- alloca | getelementptr <- phi | load <- getelementptr | sub <- phi: 33956860
+add <- mul | add <- mul | getelementptr <- alloca | getelementptr <- phi | load <- getelementptr: 33956860
+add <- mul | getelementptr <- alloca | getelementptr <- phi | load <- getelementptr | udiv <- add: 33956860
+add <- udiv | add <- phi | add <- phi | icmp <- add | br <- icmp: 33956860
+add <- udiv | udiv <- load | udiv <- add | add <- udiv | add <- phi: 33956860
+sub <- load | mul <- sub | mul <- sub | mul <- sub | mul <- sub: 33956860
+sub <- load | getelementptr <- alloca | getelementptr <- phi | load <- getelementptr | sub <- phi: 33956860
+sub <- phi | sub <- load | mul <- sub | mul <- sub | mul <- sub: 33956860
+sub <- phi | sub <- load | getelementptr <- alloca | getelementptr <- phi | load <- getelementptr: 33956860
+mul <- sub | add <- mul | add <- mul | getelementptr <- alloca | getelementptr <- phi: 33956860
+mul <- sub | mul <- sub | add <- mul | add <- mul | getelementptr <- alloca: 33956860
+mul <- sub | mul <- sub | mul <- sub | add <- mul | add <- mul: 33956860
+mul <- sub | mul <- sub | mul <- sub | mul <- sub | add <- mul: 33956860
+udiv <- add | add <- udiv | add <- phi | add <- phi | icmp <- add: 33956860
+udiv <- add | add <- udiv | udiv <- load | udiv <- add | add <- udiv: 33956860
+udiv <- load | udiv <- add | add <- udiv | add <- phi | add <- phi: 33956860
+load <- getelementptr | sub <- phi | sub <- load | mul <- sub | mul <- sub: 33956860
+load <- getelementptr | sub <- phi | sub <- load | getelementptr <- alloca | getelementptr <- phi: 33956860
+load <- getelementptr | udiv <- add | add <- udiv | udiv <- load | udiv <- add: 33956860
+getelementptr <- alloca | getelementptr <- phi | load <- getelementptr | udiv <- add | add <- udiv: 33956860
+getelementptr <- phi | load <- getelementptr | sub <- phi | sub <- load | mul <- sub: 33956860
+getelementptr <- phi | load <- getelementptr | sub <- phi | sub <- load | getelementptr <- alloca: 33956860
+getelementptr <- phi | load <- getelementptr | udiv <- add | add <- udiv | udiv <- load: 33956860
+add <- phi | add <- phi | icmp <- add | br <- icmp | getelementptr <- alloca: 31127122
+add <- phi | add <- phi | icmp <- add | br <- icmp | icmp <- add: 2829738
+add <- phi | icmp <- add | br <- icmp | icmp <- add | br <- icmp: 2829738
+shl <- phi | shl <- phi | or <- shl | or <- phi | or <- or: 2829738
+shl <- phi | or <- shl | or <- phi | or <- or | or <- shl: 2829738
+or <- shl | or <- or | call <- phi | call <- phi | call <- or: 2829738
+or <- shl | or <- phi | or <- or | or <- shl | or <- or: 2829738
+or <- or | or <- shl | or <- or | call <- phi | call <- phi: 2829738
+or <- or | call <- phi | call <- phi | call <- or | add <- phi: 2829738
+or <- phi | or <- or | or <- shl | or <- or | call <- phi: 2829738
+call <- phi | call <- or | add <- phi | icmp <- add | br <- icmp: 2829738
+call <- phi | call <- phi | call <- or | add <- phi | icmp <- add: 2829738
+call <- or | add <- phi | icmp <- add | br <- icmp | getelementptr <- alloca: 2827528
+br <- icmp | shl <- add | shl <- phi | shl <- phi | or <- shl: 1892525
+br <- icmp | icmp <- add | br <- icmp | shl <- add | shl <- phi: 1892525
+shl <- add | shl <- phi | shl <- phi | or <- shl | or <- phi: 1892525
+icmp <- add | br <- icmp | shl <- add | shl <- phi | shl <- phi: 1892525
+icmp <- add | br <- icmp | icmp <- add | br <- icmp | shl <- add: 1892525
+br <- icmp | icmp <- add | br <- icmp | icmp <- add | br <- icmp: 1250431
+icmp <- add | br <- icmp | icmp <- add | br <- icmp | icmp <- add: 1250431
+br <- icmp | icmp <- add | br <- icmp | mul <- add | add <- mul: 786643
+icmp <- add | br <- icmp | icmp <- add | br <- icmp | mul <- add: 786643
+br <- icmp | mul <- add | add <- mul | add <- mul | shl <- phi: 624091
+add <- mul | add <- mul | shl <- phi | shl <- phi | or <- shl: 624091
+add <- mul | shl <- phi | shl <- phi | or <- shl | or <- phi: 624091
+mul <- add | add <- mul | add <- mul | shl <- phi | shl <- phi: 624091
+icmp <- add | br <- icmp | mul <- add | add <- mul | add <- mul: 624091
+br <- icmp | mul <- add | add <- mul | sub <- mul | shl <- phi: 162552
+add <- mul | sub <- mul | shl <- phi | shl <- phi | or <- shl: 162552
+sub <- mul | shl <- phi | shl <- phi | or <- shl | or <- phi: 162552
+mul <- add | add <- mul | sub <- mul | shl <- phi | shl <- phi: 162552
+icmp <- add | br <- icmp | mul <- add | add <- mul | sub <- mul: 162552
+br <- icmp | shl <- phi | shl <- phi | or <- shl | or <- phi: 150570
+br <- icmp | icmp <- add | br <- icmp | shl <- phi | shl <- phi: 150570
+icmp <- add | br <- icmp | shl <- phi | shl <- phi | or <- shl: 150570
+icmp <- add | br <- icmp | icmp <- add | br <- icmp | shl <- phi: 150570
+br <- icmp | add <- phi | icmp <- add | br <- icmp | getelementptr <- alloca: 2210
+add <- phi | icmp <- add | br <- icmp | add <- phi | icmp <- add: 2210
+icmp <- add | br <- icmp | add <- phi | icmp <- add | br <- icmp: 2210
+call <- or | add <- phi | icmp <- add | br <- icmp | add <- phi: 2210
+load <- getelementptr | getelementptr <- alloca | getelementptr <- phi | load <- getelementptr | add <- load: 96
+getelementptr <- alloca | getelementptr <- phi | load <- getelementptr | add <- load | add <- load: 96
+getelementptr <- alloca | getelementptr <- phi | load <- getelementptr | getelementptr <- alloca | getelementptr <- phi: 96
+getelementptr <- phi | load <- getelementptr | getelementptr <- alloca | getelementptr <- phi | load <- getelementptr: 96
+store <- getelementptr | add <- phi | icmp <- add | br <- icmp | getelementptr <- alloca: 49
+br <- icmp | store <- phi | store <- getelementptr | store <- phi | store <- getelementptr: 48
+br <- icmp | getelementptr <- alloca | getelementptr <- phi | load <- getelementptr | getelementptr <- alloca: 48
+br <- icmp | icmp <- add | br <- icmp | store <- phi | store <- getelementptr: 48
+add <- load | add <- load | getelementptr <- alloca | getelementptr <- phi | load <- getelementptr: 48
+add <- load | add <- load | icmp <- add | br <- icmp | icmp <- add: 48
+add <- load | getelementptr <- alloca | getelementptr <- phi | load <- getelementptr | getelementptr <- alloca: 48
+add <- load | icmp <- add | br <- icmp | icmp <- add | br <- icmp: 48
+load <- getelementptr | add <- load | add <- load | getelementptr <- alloca | getelementptr <- phi: 48
+load <- getelementptr | add <- load | add <- load | icmp <- add | br <- icmp: 48
+store <- getelementptr | store <- phi | store <- getelementptr | add <- phi | icmp <- add: 48
+store <- phi | store <- getelementptr | add <- phi | icmp <- add | br <- icmp: 48
+store <- phi | store <- getelementptr | store <- phi | store <- getelementptr | add <- phi: 48
+getelementptr <- phi | load <- getelementptr | add <- load | add <- load | getelementptr <- alloca: 48
+getelementptr <- phi | load <- getelementptr | add <- load | add <- load | icmp <- add: 48
+icmp <- add | br <- icmp | store <- phi | store <- getelementptr | store <- phi: 48
+icmp <- add | br <- icmp | icmp <- add | br <- icmp | store <- phi: 48
+add <- urem | getelementptr <- alloca | getelementptr <- phi | store <- add | store <- getelementptr: 36
+urem <- call | add <- urem | getelementptr <- alloca | getelementptr <- phi | store <- add: 36
+call <- call | urem <- call | add <- urem | getelementptr <- alloca | getelementptr <- phi: 36
+add <- and | and <- call | icmp <- and | xor <- and | select <- icmp: 24
+and <- call | add <- and | and <- call | icmp <- and | xor <- and: 24
+and <- call | icmp <- and | xor <- and | select <- icmp | select <- xor: 24
+xor <- and | select <- icmp | select <- xor | select <- add | getelementptr <- alloca: 24
+store <- getelementptr | call <- call | urem <- call | add <- urem | getelementptr <- alloca: 24
+store <- getelementptr | call <- call | and <- call | add <- and | and <- call: 24
+getelementptr <- alloca | getelementptr <- phi | store <- add | store <- getelementptr | call <- call: 24
+getelementptr <- alloca | getelementptr <- phi | store <- select | store <- getelementptr | call <- call: 24
+icmp <- and | xor <- and | select <- icmp | select <- xor | select <- add: 24
+call <- call | and <- call | add <- and | and <- call | icmp <- and: 24
+select <- add | getelementptr <- alloca | getelementptr <- phi | store <- select | store <- getelementptr: 24
+select <- xor | select <- add | getelementptr <- alloca | getelementptr <- phi | store <- select: 24
+select <- icmp | select <- xor | select <- add | getelementptr <- alloca | getelementptr <- phi: 24
+store <- add | store <- getelementptr | add <- phi | icmp <- add | br <- icmp: 12
+store <- add | store <- getelementptr | call <- call | urem <- call | add <- urem: 12
+store <- add | store <- getelementptr | call <- call | and <- call | add <- and: 12
+store <- select | store <- getelementptr | call <- call | urem <- call | add <- urem: 12
+store <- select | store <- getelementptr | call <- call | and <- call | add <- and: 12
+getelementptr <- alloca | getelementptr <- phi | store <- add | store <- getelementptr | add <- phi: 12
+getelementptr <- phi | store <- add | store <- getelementptr | add <- phi | icmp <- add: 12
+getelementptr <- phi | store <- add | store <- getelementptr | call <- call | urem <- call: 12
+getelementptr <- phi | store <- add | store <- getelementptr | call <- call | and <- call: 12
+getelementptr <- phi | store <- select | store <- getelementptr | call <- call | urem <- call: 12
+getelementptr <- phi | store <- select | store <- getelementptr | call <- call | and <- call: 12
+br <- icmp | call <- call | urem <- call | add <- urem | getelementptr <- alloca: 11
+add <- phi | icmp <- add | br <- icmp | call <- call | urem <- call: 11
+store <- getelementptr | add <- phi | icmp <- add | br <- icmp | call <- call: 11
+icmp <- add | br <- icmp | call <- call | urem <- call | add <- urem: 11
+call <- alloca | call <- alloca | call <- alloca | call <- alloca | call <- alloca: 1
+call <- alloca | call <- alloca | call <- alloca | call <- alloca | call <- call: 1
+call <- alloca | call <- alloca | call <- alloca | call <- call | urem <- call: 1
+call <- alloca | call <- alloca | call <- call | urem <- call | add <- urem: 1
+call <- alloca | call <- call | urem <- call | add <- urem | getelementptr <- alloca: 1
+
