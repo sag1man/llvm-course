@@ -1,11 +1,13 @@
 // generate_cpp_ir_generator.cpp
 
-#include "llvm/Support/FileSystem.h"
 #include "llvm_2_cpp_ir_generator.h"
 
 #include <cstdlib>
 #include <filesystem>
+#include <exception>
 #include <iostream>
+#include <system_error>
+#include <fstream>
 
 int main(const int argc, char* argv[]) {
   if (argc != 3) {
@@ -18,26 +20,24 @@ int main(const int argc, char* argv[]) {
     return EXIT_FAILURE;
   }
 
-  std::error_code error;
-  llvm::raw_fd_ostream output(argv[2], error, llvm::sys::fs::OF_Text);
-  if (error) {
-    std::cerr << "Cannot open " << argv[2] << ": " << error.message() << '\n';
+  std::ofstream output(argv[2]);
+  if (!output) {
+    std::cerr << "Cannot open " << argv[2] << '\n';
     return EXIT_FAILURE;
   }
 
   int exit_result = EXIT_SUCCESS;
   try {
     Llvm2CppIrGenerator generator;
-    generator.generate(argv[1], output);
+    generator.generate_ir_generator(argv[1], output);
   } catch (const std::exception& exception) {
     std::cerr << exception.what() << '\n';
     exit_result = EXIT_FAILURE;
   }
 
   output.close();
-  if (output.has_error()) {
-    std::cerr << "Cannot write " << argv[2] << ": " << output.error().message() << '\n';
-    output.clear_error();
+  if (!output) {
+    std::cerr << "Cannot write " << argv[2] << '\n';
     return EXIT_FAILURE;
   }
 
