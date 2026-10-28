@@ -28,8 +28,7 @@ int main(const int argc, char* argv[]) {
 
   int exit_result = EXIT_SUCCESS;
   try {
-    Llvm2CppIrGenerator generator;
-    generator.generate_ir_generator(argv[1], output);
+    Llvm2CppIrGenerator::generate_ir_generator(argv[1], output);
   } catch (const std::exception& exception) {
     std::cerr << exception.what() << '\n';
     exit_result = EXIT_FAILURE;

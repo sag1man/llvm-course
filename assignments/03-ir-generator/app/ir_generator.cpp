@@ -40,32 +40,29 @@ int generate_ir() {
   auto* int1_type = Type::getIntNTy(context, 1);
   auto* void_type = Type::getVoidTy(context);
 
-  Function::Create(FunctionType::get(void_type, {}, false), Function::ExternalLinkage, "app", module);
+  Function::Create(
+      FunctionType::get(void_type, {}, false),
+      Function::ExternalLinkage, "app", module);
 
   Function::Create(
       FunctionType::get(void_type, {int64_type, ptr0_type}, false),
-      Function::ExternalLinkage,
-      "llvm.lifetime.start.p0",
-      module
-  );
+      Function::ExternalLinkage, "llvm.lifetime.start.p0", module);
 
   Function::Create(
       FunctionType::get(void_type, {int32_type, int32_type, int32_type}, false),
-      Function::ExternalLinkage,
-      "simPutPixel",
-      module
-  );
+      Function::ExternalLinkage, "simPutPixel", module);
 
-  Function::Create(FunctionType::get(void_type, {}, true), Function::ExternalLinkage, "simFlush", module);
+  Function::Create(
+      FunctionType::get(void_type, {}, true),
+      Function::ExternalLinkage, "simFlush", module);
 
-  Function::Create(FunctionType::get(int32_type, {}, true), Function::ExternalLinkage, "simRand", module);
+  Function::Create(
+      FunctionType::get(int32_type, {}, true),
+      Function::ExternalLinkage, "simRand", module);
 
   Function::Create(
       FunctionType::get(int32_type, {int32_type, int1_type}, false),
-      Function::ExternalLinkage,
-      "llvm.abs.i32",
-      module
-  );
+      Function::ExternalLinkage, "llvm.abs.i32", module);
 
   {
     auto* function = module.getFunction("app");
@@ -105,44 +102,29 @@ int generate_ir() {
     auto* value_4 = builder.CreateAlloca(array12_int32_type, 0, ConstantInt::get(int32_type, "1", 10));
     value_4->setAlignment(Align(16));
     {
-      auto* call = builder.CreateCall(
-          module.getFunction("llvm.lifetime.start.p0"),
-          {ConstantInt::get(int64_type, "48", 10), value_0}
-      );
-      call->setCallingConv(0);
-      call->setTailCallKind(static_cast<CallInst::TailCallKind>(0));
+      auto* call = builder.CreateCall(module.getFunction("llvm.lifetime.start.p0"), {ConstantInt::get(int64_type, "48", 10), value_0});
+    call->setCallingConv(0);
+    call->setTailCallKind(static_cast<CallInst::TailCallKind>(0));
     }
     {
-      auto* call = builder.CreateCall(
-          module.getFunction("llvm.lifetime.start.p0"),
-          {ConstantInt::get(int64_type, "48", 10), value_1}
-      );
-      call->setCallingConv(0);
-      call->setTailCallKind(static_cast<CallInst::TailCallKind>(0));
+      auto* call = builder.CreateCall(module.getFunction("llvm.lifetime.start.p0"), {ConstantInt::get(int64_type, "48", 10), value_1});
+    call->setCallingConv(0);
+    call->setTailCallKind(static_cast<CallInst::TailCallKind>(0));
     }
     {
-      auto* call = builder.CreateCall(
-          module.getFunction("llvm.lifetime.start.p0"),
-          {ConstantInt::get(int64_type, "48", 10), value_2}
-      );
-      call->setCallingConv(0);
-      call->setTailCallKind(static_cast<CallInst::TailCallKind>(0));
+      auto* call = builder.CreateCall(module.getFunction("llvm.lifetime.start.p0"), {ConstantInt::get(int64_type, "48", 10), value_2});
+    call->setCallingConv(0);
+    call->setTailCallKind(static_cast<CallInst::TailCallKind>(0));
     }
     {
-      auto* call = builder.CreateCall(
-          module.getFunction("llvm.lifetime.start.p0"),
-          {ConstantInt::get(int64_type, "48", 10), value_3}
-      );
-      call->setCallingConv(0);
-      call->setTailCallKind(static_cast<CallInst::TailCallKind>(0));
+      auto* call = builder.CreateCall(module.getFunction("llvm.lifetime.start.p0"), {ConstantInt::get(int64_type, "48", 10), value_3});
+    call->setCallingConv(0);
+    call->setTailCallKind(static_cast<CallInst::TailCallKind>(0));
     }
     {
-      auto* call = builder.CreateCall(
-          module.getFunction("llvm.lifetime.start.p0"),
-          {ConstantInt::get(int64_type, "48", 10), value_4}
-      );
-      call->setCallingConv(0);
-      call->setTailCallKind(static_cast<CallInst::TailCallKind>(0));
+      auto* call = builder.CreateCall(module.getFunction("llvm.lifetime.start.p0"), {ConstantInt::get(int64_type, "48", 10), value_4});
+    call->setCallingConv(0);
+    call->setTailCallKind(static_cast<CallInst::TailCallKind>(0));
     }
     builder.CreateBr(block_1);
 
@@ -151,214 +133,129 @@ int generate_ir() {
     auto* value_6 = builder.CreateCall(module.getFunction("simRand"), {});
     value_6->setCallingConv(0);
     value_6->setTailCallKind(static_cast<CallInst::TailCallKind>(1));
-    auto* value_7 =
-        builder.CreateCall(module.getFunction("llvm.abs.i32"), {value_6, ConstantInt::get(int1_type, "1", 10)});
+    auto* value_7 = builder.CreateCall(module.getFunction("llvm.abs.i32"), {value_6, ConstantInt::get(int1_type, "1", 10)});
     value_7->setCallingConv(0);
     value_7->setTailCallKind(static_cast<CallInst::TailCallKind>(1));
-    auto* value_8 = builder.Insert(
-        BinaryOperator::Create(
-            static_cast<Instruction::BinaryOps>(22),
-            value_7,
-            ConstantInt::get(int32_type, "1121", 10)
-        )
-    );
-    auto* value_9 = builder.Insert(
-        BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_8, ConstantInt::get(int32_type, "80", 10))
-    );
+    auto* value_8 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(22), value_7, ConstantInt::get(int32_type, "1121", 10)));
+    auto* value_9 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_8, ConstantInt::get(int32_type, "80", 10)));
     value_9->setHasNoUnsignedWrap(true);
     value_9->setHasNoSignedWrap(true);
     value_9->setIsExact(true);
-    auto* value_10 =
-        builder.CreateInBoundsGEP(array12_int32_type, value_0, {ConstantInt::get(int64_type, "0", 10), value_5});
+    auto* value_10 = builder.CreateInBoundsGEP(array12_int32_type, value_0, {ConstantInt::get(int64_type, "0", 10), value_5});
     builder.CreateAlignedStore(value_9, value_10, Align(4), false);
     auto* value_11 = builder.CreateCall(module.getFunction("simRand"), {});
     value_11->setCallingConv(0);
     value_11->setTailCallKind(static_cast<CallInst::TailCallKind>(1));
-    auto* value_12 =
-        builder.CreateCall(module.getFunction("llvm.abs.i32"), {value_11, ConstantInt::get(int1_type, "1", 10)});
+    auto* value_12 = builder.CreateCall(module.getFunction("llvm.abs.i32"), {value_11, ConstantInt::get(int1_type, "1", 10)});
     value_12->setCallingConv(0);
     value_12->setTailCallKind(static_cast<CallInst::TailCallKind>(1));
-    auto* value_13 = builder.Insert(
-        BinaryOperator::Create(
-            static_cast<Instruction::BinaryOps>(22),
-            value_12,
-            ConstantInt::get(int32_type, "631", 10)
-        )
-    );
-    auto* value_14 = builder.Insert(
-        BinaryOperator::Create(
-            static_cast<Instruction::BinaryOps>(13),
-            value_13,
-            ConstantInt::get(int32_type, "45", 10)
-        )
-    );
+    auto* value_13 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(22), value_12, ConstantInt::get(int32_type, "631", 10)));
+    auto* value_14 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_13, ConstantInt::get(int32_type, "45", 10)));
     value_14->setHasNoUnsignedWrap(true);
     value_14->setHasNoSignedWrap(true);
     value_14->setIsExact(true);
-    auto* value_15 =
-        builder.CreateInBoundsGEP(array12_int32_type, value_1, {ConstantInt::get(int64_type, "0", 10), value_5});
+    auto* value_15 = builder.CreateInBoundsGEP(array12_int32_type, value_1, {ConstantInt::get(int64_type, "0", 10), value_5});
     builder.CreateAlignedStore(value_14, value_15, Align(4), false);
     auto* value_16 = builder.CreateCall(module.getFunction("simRand"), {});
     value_16->setCallingConv(0);
     value_16->setTailCallKind(static_cast<CallInst::TailCallKind>(1));
-    auto* value_17 =
-        builder.CreateCall(module.getFunction("llvm.abs.i32"), {value_16, ConstantInt::get(int1_type, "1", 10)});
+    auto* value_17 = builder.CreateCall(module.getFunction("llvm.abs.i32"), {value_16, ConstantInt::get(int1_type, "1", 10)});
     value_17->setCallingConv(0);
     value_17->setTailCallKind(static_cast<CallInst::TailCallKind>(1));
-    auto* value_18 = builder.Insert(
-        BinaryOperator::Create(static_cast<Instruction::BinaryOps>(28), value_17, ConstantInt::get(int32_type, "3", 10))
-    );
-    auto* value_19 = builder.Insert(
-        BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_18, ConstantInt::get(int32_type, "1", 10))
-    );
+    auto* value_18 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(28), value_17, ConstantInt::get(int32_type, "3", 10)));
+    auto* value_19 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_18, ConstantInt::get(int32_type, "1", 10)));
     value_19->setHasNoUnsignedWrap(true);
     value_19->setHasNoSignedWrap(true);
     value_19->setIsExact(true);
     auto* value_20 = builder.CreateCall(module.getFunction("simRand"), {});
     value_20->setCallingConv(0);
     value_20->setTailCallKind(static_cast<CallInst::TailCallKind>(1));
-    auto* value_21 = builder.Insert(
-        BinaryOperator::Create(static_cast<Instruction::BinaryOps>(28), value_20, ConstantInt::get(int32_type, "1", 10))
-    );
-    auto* value_22 =
-        builder.CreateICmp(static_cast<CmpInst::Predicate>(32), value_21, ConstantInt::get(int32_type, "0", 10));
-    auto* value_23 = builder.Insert(
-        BinaryOperator::Create(
-            static_cast<Instruction::BinaryOps>(30),
-            value_18,
-            ConstantInt::get(int32_type, "4294967295", 10)
-        )
-    );
+    auto* value_21 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(28), value_20, ConstantInt::get(int32_type, "1", 10)));
+    auto* value_22 = builder.CreateICmp(static_cast<CmpInst::Predicate>(32), value_21, ConstantInt::get(int32_type, "0", 10));
+    auto* value_23 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(30), value_18, ConstantInt::get(int32_type, "4294967295", 10)));
     auto* value_24 = builder.CreateSelect(value_22, value_23, value_19);
-    auto* value_25 =
-        builder.CreateInBoundsGEP(array12_int32_type, value_2, {ConstantInt::get(int64_type, "0", 10), value_5});
+    auto* value_25 = builder.CreateInBoundsGEP(array12_int32_type, value_2, {ConstantInt::get(int64_type, "0", 10), value_5});
     builder.CreateAlignedStore(value_24, value_25, Align(4), false);
     auto* value_26 = builder.CreateCall(module.getFunction("simRand"), {});
     value_26->setCallingConv(0);
     value_26->setTailCallKind(static_cast<CallInst::TailCallKind>(1));
-    auto* value_27 =
-        builder.CreateCall(module.getFunction("llvm.abs.i32"), {value_26, ConstantInt::get(int1_type, "1", 10)});
+    auto* value_27 = builder.CreateCall(module.getFunction("llvm.abs.i32"), {value_26, ConstantInt::get(int1_type, "1", 10)});
     value_27->setCallingConv(0);
     value_27->setTailCallKind(static_cast<CallInst::TailCallKind>(1));
-    auto* value_28 = builder.Insert(
-        BinaryOperator::Create(static_cast<Instruction::BinaryOps>(28), value_27, ConstantInt::get(int32_type, "3", 10))
-    );
-    auto* value_29 = builder.Insert(
-        BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_28, ConstantInt::get(int32_type, "1", 10))
-    );
+    auto* value_28 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(28), value_27, ConstantInt::get(int32_type, "3", 10)));
+    auto* value_29 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_28, ConstantInt::get(int32_type, "1", 10)));
     value_29->setHasNoUnsignedWrap(true);
     value_29->setHasNoSignedWrap(true);
     value_29->setIsExact(true);
     auto* value_30 = builder.CreateCall(module.getFunction("simRand"), {});
     value_30->setCallingConv(0);
     value_30->setTailCallKind(static_cast<CallInst::TailCallKind>(1));
-    auto* value_31 = builder.Insert(
-        BinaryOperator::Create(static_cast<Instruction::BinaryOps>(28), value_30, ConstantInt::get(int32_type, "1", 10))
-    );
-    auto* value_32 =
-        builder.CreateICmp(static_cast<CmpInst::Predicate>(32), value_31, ConstantInt::get(int32_type, "0", 10));
-    auto* value_33 = builder.Insert(
-        BinaryOperator::Create(
-            static_cast<Instruction::BinaryOps>(30),
-            value_28,
-            ConstantInt::get(int32_type, "4294967295", 10)
-        )
-    );
+    auto* value_31 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(28), value_30, ConstantInt::get(int32_type, "1", 10)));
+    auto* value_32 = builder.CreateICmp(static_cast<CmpInst::Predicate>(32), value_31, ConstantInt::get(int32_type, "0", 10));
+    auto* value_33 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(30), value_28, ConstantInt::get(int32_type, "4294967295", 10)));
     auto* value_34 = builder.CreateSelect(value_32, value_33, value_29);
-    auto* value_35 =
-        builder.CreateInBoundsGEP(array12_int32_type, value_3, {ConstantInt::get(int64_type, "0", 10), value_5});
+    auto* value_35 = builder.CreateInBoundsGEP(array12_int32_type, value_3, {ConstantInt::get(int64_type, "0", 10), value_5});
     builder.CreateAlignedStore(value_34, value_35, Align(4), false);
     auto* value_36 = builder.CreateCall(module.getFunction("simRand"), {});
     value_36->setCallingConv(0);
     value_36->setTailCallKind(static_cast<CallInst::TailCallKind>(1));
-    auto* value_37 =
-        builder.CreateCall(module.getFunction("llvm.abs.i32"), {value_36, ConstantInt::get(int1_type, "1", 10)});
+    auto* value_37 = builder.CreateCall(module.getFunction("llvm.abs.i32"), {value_36, ConstantInt::get(int1_type, "1", 10)});
     value_37->setCallingConv(0);
     value_37->setTailCallKind(static_cast<CallInst::TailCallKind>(1));
-    auto* value_38 = builder.Insert(
-        BinaryOperator::Create(
-            static_cast<Instruction::BinaryOps>(22),
-            value_37,
-            ConstantInt::get(int32_type, "2001", 10)
-        )
-    );
-    auto* value_39 = builder.Insert(
-        BinaryOperator::Create(
-            static_cast<Instruction::BinaryOps>(13),
-            value_38,
-            ConstantInt::get(int32_type, "1000", 10)
-        )
-    );
+    auto* value_38 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(22), value_37, ConstantInt::get(int32_type, "2001", 10)));
+    auto* value_39 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_38, ConstantInt::get(int32_type, "1000", 10)));
     value_39->setHasNoUnsignedWrap(true);
     value_39->setHasNoSignedWrap(true);
     value_39->setIsExact(true);
-    auto* value_40 =
-        builder.CreateInBoundsGEP(array12_int32_type, value_4, {ConstantInt::get(int64_type, "0", 10), value_5});
+    auto* value_40 = builder.CreateInBoundsGEP(array12_int32_type, value_4, {ConstantInt::get(int64_type, "0", 10), value_5});
     builder.CreateAlignedStore(value_39, value_40, Align(4), false);
-    auto* value_41 = builder.Insert(
-        BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_5, ConstantInt::get(int64_type, "1", 10))
-    );
+    auto* value_41 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_5, ConstantInt::get(int64_type, "1", 10)));
     value_41->setHasNoUnsignedWrap(true);
     value_41->setHasNoSignedWrap(true);
     value_41->setIsExact(true);
-    auto* value_42 =
-        builder.CreateICmp(static_cast<CmpInst::Predicate>(32), value_41, ConstantInt::get(int64_type, "12", 10));
+    auto* value_42 = builder.CreateICmp(static_cast<CmpInst::Predicate>(32), value_41, ConstantInt::get(int64_type, "12", 10));
     builder.CreateCondBr(value_42, block_2, block_1);
 
     builder.SetInsertPoint(block_2);
     auto* value_43 = builder.CreatePHI(int64_type, 2);
-    auto* value_44 =
-        builder.CreateInBoundsGEP(array12_int32_type, value_0, {ConstantInt::get(int64_type, "0", 10), value_43});
+    auto* value_44 = builder.CreateInBoundsGEP(array12_int32_type, value_0, {ConstantInt::get(int64_type, "0", 10), value_43});
     auto* value_45 = builder.CreateAlignedLoad(int32_type, value_44, Align(4), false);
-    auto* value_46 =
-        builder.CreateInBoundsGEP(array12_int32_type, value_2, {ConstantInt::get(int64_type, "0", 10), value_43});
+    auto* value_46 = builder.CreateInBoundsGEP(array12_int32_type, value_2, {ConstantInt::get(int64_type, "0", 10), value_43});
     auto* value_47 = builder.CreateAlignedLoad(int32_type, value_46, Align(4), false);
-    auto* value_48 =
-        builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_47, value_45));
+    auto* value_48 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_47, value_45));
     value_48->setHasNoSignedWrap(true);
-    auto* value_49 =
-        builder.CreateInBoundsGEP(array12_int32_type, value_1, {ConstantInt::get(int64_type, "0", 10), value_43});
+    auto* value_49 = builder.CreateInBoundsGEP(array12_int32_type, value_1, {ConstantInt::get(int64_type, "0", 10), value_43});
     auto* value_50 = builder.CreateAlignedLoad(int32_type, value_49, Align(4), false);
-    auto* value_51 =
-        builder.CreateInBoundsGEP(array12_int32_type, value_3, {ConstantInt::get(int64_type, "0", 10), value_43});
+    auto* value_51 = builder.CreateInBoundsGEP(array12_int32_type, value_3, {ConstantInt::get(int64_type, "0", 10), value_43});
     auto* value_52 = builder.CreateAlignedLoad(int32_type, value_51, Align(4), false);
-    auto* value_53 =
-        builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_52, value_50));
+    auto* value_53 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_52, value_50));
     value_53->setHasNoSignedWrap(true);
-    auto* value_54 =
-        builder.CreateICmp(static_cast<CmpInst::Predicate>(40), value_48, ConstantInt::get(int32_type, "0", 10));
+    auto* value_54 = builder.CreateICmp(static_cast<CmpInst::Predicate>(40), value_48, ConstantInt::get(int32_type, "0", 10));
     builder.CreateCondBr(value_54, block_4, block_3);
 
     builder.SetInsertPoint(block_3);
-    auto* value_55 =
-        builder.CreateICmp(static_cast<CmpInst::Predicate>(34), value_48, ConstantInt::get(int32_type, "1279", 10));
+    auto* value_55 = builder.CreateICmp(static_cast<CmpInst::Predicate>(34), value_48, ConstantInt::get(int32_type, "1279", 10));
     builder.CreateCondBr(value_55, block_4, block_5);
 
     builder.SetInsertPoint(block_4);
     auto* value_56 = builder.CreatePHI(int32_type, 2);
-    auto* value_57 = builder.Insert(
-        BinaryOperator::Create(static_cast<Instruction::BinaryOps>(15), ConstantInt::get(int32_type, "0", 10), value_47)
-    );
+    auto* value_57 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(15), ConstantInt::get(int32_type, "0", 10), value_47));
     value_57->setHasNoSignedWrap(true);
     builder.CreateAlignedStore(value_57, value_46, Align(4), false);
     builder.CreateBr(block_5);
 
     builder.SetInsertPoint(block_5);
     auto* value_58 = builder.CreatePHI(int32_type, 2);
-    auto* value_59 =
-        builder.CreateICmp(static_cast<CmpInst::Predicate>(40), value_53, ConstantInt::get(int32_type, "0", 10));
+    auto* value_59 = builder.CreateICmp(static_cast<CmpInst::Predicate>(40), value_53, ConstantInt::get(int32_type, "0", 10));
     builder.CreateCondBr(value_59, block_7, block_6);
 
     builder.SetInsertPoint(block_6);
-    auto* value_60 =
-        builder.CreateICmp(static_cast<CmpInst::Predicate>(34), value_53, ConstantInt::get(int32_type, "719", 10));
+    auto* value_60 = builder.CreateICmp(static_cast<CmpInst::Predicate>(34), value_53, ConstantInt::get(int32_type, "719", 10));
     builder.CreateCondBr(value_60, block_7, block_8);
 
     builder.SetInsertPoint(block_7);
     auto* value_61 = builder.CreatePHI(int32_type, 2);
-    auto* value_62 = builder.Insert(
-        BinaryOperator::Create(static_cast<Instruction::BinaryOps>(15), ConstantInt::get(int32_type, "0", 10), value_52)
-    );
+    auto* value_62 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(15), ConstantInt::get(int32_type, "0", 10), value_52));
     value_62->setHasNoSignedWrap(true);
     builder.CreateAlignedStore(value_62, value_51, Align(4), false);
     builder.CreateBr(block_8);
@@ -367,14 +264,11 @@ int generate_ir() {
     auto* value_63 = builder.CreatePHI(int32_type, 2);
     builder.CreateAlignedStore(value_58, value_44, Align(4), false);
     builder.CreateAlignedStore(value_63, value_49, Align(4), false);
-    auto* value_64 = builder.Insert(
-        BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_43, ConstantInt::get(int64_type, "1", 10))
-    );
+    auto* value_64 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_43, ConstantInt::get(int64_type, "1", 10)));
     value_64->setHasNoUnsignedWrap(true);
     value_64->setHasNoSignedWrap(true);
     value_64->setIsExact(true);
-    auto* value_65 =
-        builder.CreateICmp(static_cast<CmpInst::Predicate>(32), value_64, ConstantInt::get(int64_type, "12", 10));
+    auto* value_65 = builder.CreateICmp(static_cast<CmpInst::Predicate>(32), value_64, ConstantInt::get(int64_type, "12", 10));
     builder.CreateCondBr(value_65, block_10, block_9);
 
     builder.SetInsertPoint(block_10);
@@ -388,132 +282,78 @@ int generate_ir() {
     builder.SetInsertPoint(block_15);
     auto* value_72 = builder.CreatePHI(int64_type, 2);
     auto* value_73 = builder.CreatePHI(int32_type, 2);
-    auto* value_74 =
-        builder.CreateInBoundsGEP(array12_int32_type, value_0, {ConstantInt::get(int64_type, "0", 10), value_72});
+    auto* value_74 = builder.CreateInBoundsGEP(array12_int32_type, value_0, {ConstantInt::get(int64_type, "0", 10), value_72});
     auto* value_75 = builder.CreateAlignedLoad(int32_type, value_74, Align(4), false);
-    auto* value_76 =
-        builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(15), value_68, value_75));
+    auto* value_76 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(15), value_68, value_75));
     value_76->setHasNoSignedWrap(true);
-    auto* value_77 =
-        builder.CreateInBoundsGEP(array12_int32_type, value_1, {ConstantInt::get(int64_type, "0", 10), value_72});
+    auto* value_77 = builder.CreateInBoundsGEP(array12_int32_type, value_1, {ConstantInt::get(int64_type, "0", 10), value_72});
     auto* value_78 = builder.CreateAlignedLoad(int32_type, value_77, Align(4), false);
-    auto* value_79 =
-        builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(15), value_67, value_78));
+    auto* value_79 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(15), value_67, value_78));
     value_79->setHasNoSignedWrap(true);
-    auto* value_80 =
-        builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(17), value_76, value_76));
+    auto* value_80 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(17), value_76, value_76));
     value_80->setHasNoSignedWrap(true);
-    auto* value_81 =
-        builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(17), value_79, value_79));
+    auto* value_81 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(17), value_79, value_79));
     value_81->setHasNoSignedWrap(true);
-    auto* value_82 =
-        builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_81, value_80));
+    auto* value_82 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_81, value_80));
     value_82->setHasNoUnsignedWrap(true);
     value_82->setHasNoSignedWrap(true);
     value_82->setIsExact(true);
-    auto* value_83 =
-        builder.CreateInBoundsGEP(array12_int32_type, value_4, {ConstantInt::get(int64_type, "0", 10), value_72});
+    auto* value_83 = builder.CreateInBoundsGEP(array12_int32_type, value_4, {ConstantInt::get(int64_type, "0", 10), value_72});
     auto* value_84 = builder.CreateAlignedLoad(int32_type, value_83, Align(4), false);
-    auto* value_85 = builder.Insert(
-        BinaryOperator::Create(
-            static_cast<Instruction::BinaryOps>(19),
-            value_82,
-            ConstantInt::get(int32_type, "100", 10)
-        )
-    );
-    auto* value_86 = builder.Insert(
-        BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_85, ConstantInt::get(int32_type, "1", 10))
-    );
+    auto* value_85 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(19), value_82, ConstantInt::get(int32_type, "100", 10)));
+    auto* value_86 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_85, ConstantInt::get(int32_type, "1", 10)));
     value_86->setHasNoUnsignedWrap(true);
     value_86->setHasNoSignedWrap(true);
     value_86->setIsExact(true);
-    auto* value_87 =
-        builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(19), value_84, value_86));
-    auto* value_88 =
-        builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_87, value_73));
-    auto* value_89 = builder.Insert(
-        BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_72, ConstantInt::get(int64_type, "1", 10))
-    );
+    auto* value_87 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(19), value_84, value_86));
+    auto* value_88 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_87, value_73));
+    auto* value_89 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_72, ConstantInt::get(int64_type, "1", 10)));
     value_89->setHasNoUnsignedWrap(true);
     value_89->setHasNoSignedWrap(true);
     value_89->setIsExact(true);
-    auto* value_90 =
-        builder.CreateICmp(static_cast<CmpInst::Predicate>(32), value_89, ConstantInt::get(int64_type, "12", 10));
+    auto* value_90 = builder.CreateICmp(static_cast<CmpInst::Predicate>(32), value_89, ConstantInt::get(int64_type, "12", 10));
     builder.CreateCondBr(value_90, block_14, block_15);
 
     builder.SetInsertPoint(block_14);
-    auto* value_71 =
-        builder.CreateICmp(static_cast<CmpInst::Predicate>(36), value_88, ConstantInt::get(int32_type, "30", 10));
+    auto* value_71 = builder.CreateICmp(static_cast<CmpInst::Predicate>(36), value_88, ConstantInt::get(int32_type, "30", 10));
     builder.CreateCondBr(value_71, block_16, block_17);
 
     builder.SetInsertPoint(block_17);
-    auto* value_92 =
-        builder.CreateICmp(static_cast<CmpInst::Predicate>(36), value_88, ConstantInt::get(int32_type, "80", 10));
+    auto* value_92 = builder.CreateICmp(static_cast<CmpInst::Predicate>(36), value_88, ConstantInt::get(int32_type, "80", 10));
     builder.CreateCondBr(value_92, block_18, block_19);
 
     builder.SetInsertPoint(block_19);
-    auto* value_96 =
-        builder.CreateICmp(static_cast<CmpInst::Predicate>(36), value_88, ConstantInt::get(int32_type, "160", 10));
+    auto* value_96 = builder.CreateICmp(static_cast<CmpInst::Predicate>(36), value_88, ConstantInt::get(int32_type, "160", 10));
     builder.CreateCondBr(value_96, block_20, block_21);
 
     builder.SetInsertPoint(block_20);
-    auto* value_97 = builder.Insert(
-        BinaryOperator::Create(static_cast<Instruction::BinaryOps>(17), value_88, ConstantInt::get(int32_type, "3", 10))
-    );
+    auto* value_97 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(17), value_88, ConstantInt::get(int32_type, "3", 10)));
     value_97->setHasNoUnsignedWrap(true);
     value_97->setHasNoSignedWrap(true);
     value_97->setIsExact(true);
-    auto* value_98 = builder.Insert(
-        BinaryOperator::Create(
-            static_cast<Instruction::BinaryOps>(13),
-            value_97,
-            ConstantInt::get(int32_type, "4294967056", 10)
-        )
-    );
+    auto* value_98 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_97, ConstantInt::get(int32_type, "4294967056", 10)));
     value_98->setHasNoSignedWrap(true);
-    auto* value_99 = builder.Insert(
-        BinaryOperator::Create(
-            static_cast<Instruction::BinaryOps>(15),
-            ConstantInt::get(int32_type, "495", 10),
-            value_97
-        )
-    );
+    auto* value_99 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(15), ConstantInt::get(int32_type, "495", 10), value_97));
     value_99->setHasNoUnsignedWrap(true);
     value_99->setHasNoSignedWrap(true);
     value_99->setIsExact(true);
     builder.CreateBr(block_21);
 
     builder.SetInsertPoint(block_18);
-    auto* value_93 = builder.Insert(
-        BinaryOperator::Create(static_cast<Instruction::BinaryOps>(17), value_88, ConstantInt::get(int32_type, "3", 10))
-    );
+    auto* value_93 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(17), value_88, ConstantInt::get(int32_type, "3", 10)));
     value_93->setHasNoUnsignedWrap(true);
     value_93->setHasNoSignedWrap(true);
     value_93->setIsExact(true);
-    auto* value_94 = builder.Insert(
-        BinaryOperator::Create(
-            static_cast<Instruction::BinaryOps>(13),
-            value_93,
-            ConstantInt::get(int32_type, "4294967206", 10)
-        )
-    );
+    auto* value_94 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_93, ConstantInt::get(int32_type, "4294967206", 10)));
     value_94->setHasNoSignedWrap(true);
-    auto* value_95 = builder.Insert(
-        BinaryOperator::Create(
-            static_cast<Instruction::BinaryOps>(13),
-            value_93,
-            ConstantInt::get(int32_type, "10", 10)
-        )
-    );
+    auto* value_95 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_93, ConstantInt::get(int32_type, "10", 10)));
     value_95->setHasNoUnsignedWrap(true);
     value_95->setHasNoSignedWrap(true);
     value_95->setIsExact(true);
     builder.CreateBr(block_21);
 
     builder.SetInsertPoint(block_16);
-    auto* value_91 = builder.Insert(
-        BinaryOperator::Create(static_cast<Instruction::BinaryOps>(25), value_88, ConstantInt::get(int32_type, "1", 10))
-    );
+    auto* value_91 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(25), value_88, ConstantInt::get(int32_type, "1", 10)));
     value_91->setHasNoUnsignedWrap(true);
     value_91->setHasNoSignedWrap(true);
     value_91->setIsExact(true);
@@ -523,68 +363,42 @@ int generate_ir() {
     auto* value_100 = builder.CreatePHI(int32_type, 4);
     auto* value_101 = builder.CreatePHI(int32_type, 4);
     auto* value_102 = builder.CreatePHI(int32_type, 4);
-    auto* value_103 = builder.Insert(
-        BinaryOperator::Create(
-            static_cast<Instruction::BinaryOps>(25),
-            value_100,
-            ConstantInt::get(int32_type, "16", 10)
-        )
-    );
+    auto* value_103 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(25), value_100, ConstantInt::get(int32_type, "16", 10)));
     value_103->setHasNoUnsignedWrap(true);
     value_103->setHasNoSignedWrap(true);
     value_103->setIsExact(true);
-    auto* value_104 = builder.Insert(
-        BinaryOperator::Create(
-            static_cast<Instruction::BinaryOps>(25),
-            value_102,
-            ConstantInt::get(int32_type, "8", 10)
-        )
-    );
+    auto* value_104 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(25), value_102, ConstantInt::get(int32_type, "8", 10)));
     value_104->setHasNoUnsignedWrap(true);
     value_104->setHasNoSignedWrap(true);
     value_104->setIsExact(true);
-    auto* value_105 =
-        builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(29), value_103, value_101));
-    auto* value_106 =
-        builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(29), value_105, value_104));
-    auto* value_107 = builder.Insert(
-        BinaryOperator::Create(
-            static_cast<Instruction::BinaryOps>(29),
-            value_106,
-            ConstantInt::get(int32_type, "4278190080", 10)
-        )
-    );
+    auto* value_105 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(29), value_103, value_101));
+    auto* value_106 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(29), value_105, value_104));
+    auto* value_107 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(29), value_106, ConstantInt::get(int32_type, "4278190080", 10)));
     {
       auto* call = builder.CreateCall(module.getFunction("simPutPixel"), {value_68, value_67, value_107});
-      call->setCallingConv(0);
-      call->setTailCallKind(static_cast<CallInst::TailCallKind>(1));
+    call->setCallingConv(0);
+    call->setTailCallKind(static_cast<CallInst::TailCallKind>(1));
     }
-    auto* value_108 = builder.Insert(
-        BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_68, ConstantInt::get(int32_type, "1", 10))
-    );
+    auto* value_108 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_68, ConstantInt::get(int32_type, "1", 10)));
     value_108->setHasNoUnsignedWrap(true);
     value_108->setHasNoSignedWrap(true);
     value_108->setIsExact(true);
-    auto* value_109 =
-        builder.CreateICmp(static_cast<CmpInst::Predicate>(32), value_108, ConstantInt::get(int32_type, "1280", 10));
+    auto* value_109 = builder.CreateICmp(static_cast<CmpInst::Predicate>(32), value_108, ConstantInt::get(int32_type, "1280", 10));
     builder.CreateCondBr(value_109, block_13, block_12);
 
     builder.SetInsertPoint(block_13);
-    auto* value_69 = builder.Insert(
-        BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_67, ConstantInt::get(int32_type, "1", 10))
-    );
+    auto* value_69 = builder.Insert(BinaryOperator::Create(static_cast<Instruction::BinaryOps>(13), value_67, ConstantInt::get(int32_type, "1", 10)));
     value_69->setHasNoUnsignedWrap(true);
     value_69->setHasNoSignedWrap(true);
     value_69->setIsExact(true);
-    auto* value_70 =
-        builder.CreateICmp(static_cast<CmpInst::Predicate>(32), value_69, ConstantInt::get(int32_type, "720", 10));
+    auto* value_70 = builder.CreateICmp(static_cast<CmpInst::Predicate>(32), value_69, ConstantInt::get(int32_type, "720", 10));
     builder.CreateCondBr(value_70, block_11, block_10);
 
     builder.SetInsertPoint(block_11);
     {
       auto* call = builder.CreateCall(module.getFunction("simFlush"), {});
-      call->setCallingConv(0);
-      call->setTailCallKind(static_cast<CallInst::TailCallKind>(1));
+    call->setCallingConv(0);
+    call->setTailCallKind(static_cast<CallInst::TailCallKind>(1));
     }
     builder.CreateBr(block_9);
 
@@ -628,6 +442,7 @@ int generate_ir() {
     value_66->addIncoming(ConstantInt::get(int64_type, "0", 10), block_11);
   }
 
+
   if (verifyModule(module, &errs())) {
     return 1;
   }
@@ -639,17 +454,21 @@ int generate_ir() {
 
   auto* app = module.getFunction("app");
   std::unique_ptr<ExecutionEngine> engine(
-      EngineBuilder(std::move(owned_module)).setEngineKind(EngineKind::JIT).create()
-  );
+      EngineBuilder(std::move(owned_module))
+          .setEngineKind(EngineKind::JIT)
+          .create());
 
   if (!engine) {
     errs() << "Cannot create ExecutionEngine\n";
     return 1;
   }
 
-  engine->addGlobalMapping(module.getFunction("simPutPixel"), reinterpret_cast<void*>(simPutPixel));
-  engine->addGlobalMapping(module.getFunction("simFlush"), reinterpret_cast<void*>(simFlush));
-  engine->addGlobalMapping(module.getFunction("simRand"), reinterpret_cast<void*>(simRand));
+  engine->addGlobalMapping(
+      module.getFunction("simPutPixel"), reinterpret_cast<void*>(simPutPixel));
+  engine->addGlobalMapping(
+      module.getFunction("simFlush"), reinterpret_cast<void*>(simFlush));
+  engine->addGlobalMapping(
+      module.getFunction("simRand"), reinterpret_cast<void*>(simRand));
 
   engine->finalizeObject();
 
